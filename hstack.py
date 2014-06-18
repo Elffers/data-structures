@@ -8,15 +8,24 @@
 
 class HStack():
 	def __init__(self):
-		self.contents = []
+		self._contents = []
 
 	def push(self, el):
-		self.contents.append(el)
+		self._contents.append(el)
 
 	def pop(self):
-		last = self.contents[-1]
-		self.contents.pop()
+		last = self._contents[-1]
+		self._contents.pop()
 		return last
 
+	## this uses the @property decorator to define 'length' as an attribute of
+	## an instance, so you can call hstack.length as opposed to calling
+	## hstack.length() as a function.
+
+	@property
 	def length(self):
-		return len(self.contents)
+		return len(self._contents)
+
+	## the following allows you to call len(hstack) to return the length
+	## def __len__(self);
+		return len(self._contents)

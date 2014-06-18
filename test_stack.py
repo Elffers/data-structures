@@ -8,7 +8,7 @@ class TestHStackFunctions(unittest.TestCase):
 
 	def test_push(self):
 		self.stack.push(1)
-		self.assertEqual(self.stack.contents[0], 1)
+		self.assertEqual(self.stack._contents[0], 1)
 
 	def test_pop(self):
 		self.stack.push(1)
@@ -18,7 +18,7 @@ class TestHStackFunctions(unittest.TestCase):
 	def test_length(self):
 		self.stack.push(1)
 		self.stack.push("a")
-		self.assertEqual(self.stack.length(), 2)
+		self.assertEqual(self.stack.length, 2)
 
 if __name__ == '__main__':
 	    unittest.main()
