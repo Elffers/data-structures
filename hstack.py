@@ -11,3 +11,8 @@ class HStack():
 
 	def push(self, el):
 		self.contents.append(el)
+
+	def pop(self):
+		last = self.contents[-1]
+		self.contents.pop()
+		return last
