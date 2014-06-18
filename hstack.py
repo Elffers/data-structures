@@ -7,5 +7,7 @@
 '''
 
 class HStack():
+	contents = []
+
 	def push(self, el):
-		return 0
+		self.contents.append(el)
