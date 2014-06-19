@@ -7,13 +7,18 @@
 '''
 
 class HStack():
-	def __init__(self):
+	def __init__(self, max=None):
 		self._contents = []
+		if max is None:
+			self._max = 20
+		else:
+			self._max = max
 
 	def push(self, el):
 		self._contents.append(el)
 
 	def pop(self):
+		# if self.length == 0
 		last = self._contents[-1]
 		self._contents.pop()
 		return last

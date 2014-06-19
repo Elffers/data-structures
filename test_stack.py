@@ -5,6 +5,7 @@ class TestHStackFunctions(unittest.TestCase):
 
 	def setUp(self):
 		self.stack = HStack()
+		self.stack10 = HStack(10)
 
 	def test_push(self):
 		self.stack.push(1)
@@ -20,5 +21,8 @@ class TestHStackFunctions(unittest.TestCase):
 		self.stack.push("a")
 		self.assertEqual(self.stack.length, 2)
 
+	def test_size(self):
+		self.assertEqual(self.stack._max, 20)
+		self.assertEqual(self.stack10._max, 10)
 if __name__ == '__main__':
 	    unittest.main()
