@@ -15,7 +15,10 @@ class HStack():
 	    self._max = max
 
     def push(self, el):
-    	self._contents.append(el)
+	if self.length < self._max:
+	    self._contents.append(el)
+	else:
+	    raise IndexError
     
     def pop(self):
 	if self.length == 0:
