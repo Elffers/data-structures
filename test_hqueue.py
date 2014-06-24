@@ -35,3 +35,12 @@ class TestHQueueFunctions(unittest.TestCase):
 	self.hqueue.push(2)
 	self.assertEqual(self.hqueue.next(), 1)
 
+    def test_iter(self):
+	self.hqueue.push(1)
+	self.hqueue.push(2)
+
+# test_values = [1, 2, 3]
+# for test_value in test_values:
+	# self.foo.push(test_values)
+# for element, test_value in self.foo, test_values:
+    # self.assertEquals(element, test_value)
