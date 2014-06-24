@@ -16,6 +16,7 @@ class HQueue():
     def dequeue(self):
 	el = self._contents[0]
 	self._contents = self._contents[1:]
+	# print self._contents
 	return el
     
     def __len__(self):
