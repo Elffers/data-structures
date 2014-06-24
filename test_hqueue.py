@@ -8,3 +8,8 @@ class TestHQueueFunctions(unittest.TestCase):
     def test_push(self):
 	self.hqueue.push(1)
 	self.assertEqual(self.hqueue._contents[0], 1)
+
+    def test_dequeue(self):
+	self.hqueue.push(1)
+	self.hqueue.push(2)
+	self.assertEqual(self.hqueue.dequeue(), 1)
