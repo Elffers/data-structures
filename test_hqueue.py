@@ -18,3 +18,10 @@ class TestHQueueFunctions(unittest.TestCase):
 	self.hqueue.push(1)
 	self.hqueue.push(2)
 	self.assertEqual(len(self.hqueue), 2)
+
+    def test_push_after_dequeue(self):
+	self.hqueue.push(1)
+	self.hqueue.push(2)
+	self.hqueue.dequeue()
+	self.hqueue.push(3)
+	self.assertEqual(self.hqueue.dequeue(),2)
