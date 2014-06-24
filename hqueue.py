@@ -17,3 +17,6 @@ class HQueue():
 	el = self._contents[0]
 	self._contents = self._contents[1:]
 	return el
+    
+    def __len__(self):
+	return len(self._contents)
