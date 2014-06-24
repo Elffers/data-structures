@@ -9,6 +9,7 @@
 class HQueue():
     def __init__(self):
 	self._contents = []
+	self._pointer = None
 
     def push(self, el):
 	self._contents.append(el)
@@ -21,3 +22,11 @@ class HQueue():
     
     def __len__(self):
 	return len(self._contents)
+
+    def next(self):
+	if not self._pointer:
+	    self._pointer = 0
+	else:
+	    self._pointer += 1
+	return self._contents[self._pointer]
+

@@ -28,5 +28,10 @@ class TestHQueueFunctions(unittest.TestCase):
 
     def test_dequeue_empty(self):
 	with self.assertRaises(IndexError):
-	    print self.hqueue
 	    self.hqueue.dequeue()
+    
+    def test_next(self):
+	self.hqueue.push(1)
+	self.hqueue.push(2)
+	self.assertEqual(self.hqueue.next(), 1)
+
