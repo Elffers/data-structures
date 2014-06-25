@@ -14,6 +14,10 @@ class TestHPriorityQueue(unittest.TestCase):
 	self.hpq.push([1,5])
 	self.assertEqual(self.hpq.dequeue(), 5)
 
+    def test_lenth(self):
+	self.hpq.push([1,5])
+	self.assertEqual(len(self.hpq), 1)
+
     def test_list_priorities(self):
 	self.hpq.push([1,5])
 	self.hpq.push([2,3])

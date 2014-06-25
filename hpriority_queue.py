@@ -18,6 +18,9 @@ class HPriorityQueue(HQueue):
 	self._priorities = {}
 	self._contents = []
     
+    def __len__(self):
+	return len(self._contents)
+
     def push(self,tuple):
 	priority, value = tuple
 	if self._priorities.has_key(priority):
