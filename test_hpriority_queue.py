@@ -23,4 +23,4 @@ class TestHPriorityQueue(unittest.TestCase):
 	self.hpq.push([1,5])
 	self.hpq.push([2,3])
 	self.hpq.push([1, 7])
-	self.assertEqual(self.hpq.get_queue(1), [5, 7])
+	self.assertEqual(self.hpq.get_queue(1)._contents, [5, 7])

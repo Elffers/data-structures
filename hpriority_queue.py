@@ -21,9 +21,11 @@ class HPriorityQueue(HQueue):
     def push(self,tuple):
 	priority, value = tuple
 	if self._priorities.has_key(priority):
-	    self._priorities[priority].append(value)
+	    self._priorities[priority].push(value)
 	else:
-	    self._priorities[priority] = [value]
+	    hqueue = HQueue()
+	    hqueue.push(value)
+	    self._priorities[priority] = hqueue
 	self._contents.append(value)
 
     def list_priorities(self):
