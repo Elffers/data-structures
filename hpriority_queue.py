@@ -30,4 +30,4 @@ class HPriorityQueue(HQueue):
 	return self._priorities.keys()
 
     def get_queue(self, priority):
-	self._priorities[priority]
+	return self._priorities[priority]
