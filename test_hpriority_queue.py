@@ -7,9 +7,12 @@ class TestHPriorityQueue(unittest.TestCase):
 	self.hpq = HPriorityQueue()
 
     def test_push(self):
-	self.hpq.push(1)
-	self.assertEqual(self.hpq._contents[0], 1)
+	self.hpq.push([1,5])
+	self.assertEqual(self.hpq._contents[0], 5)
 
     def test_dequeue(self):
-	self.hpq.push(1)
-	self.assertEqual(self.hpq.dequeue(), 1)
+	self.hpq.push([1,5])
+	self.assertEqual(self.hpq.dequeue(), 5)
+
+    def test_list_priorities(self):
+	self.hpq.push([1,5])
