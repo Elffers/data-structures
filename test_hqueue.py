@@ -34,6 +34,7 @@ class TestHQueueFunctions(unittest.TestCase):
 	self.hqueue.push(1)
 	self.hqueue.push(2)
 	self.assertEqual(self.hqueue.next(), 1)
+	self.assertEqual(self.hqueue.next(), 2)
 
     def test_iter(self):
 	self.hqueue.push(1)

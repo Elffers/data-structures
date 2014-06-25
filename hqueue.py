@@ -24,7 +24,7 @@ class HQueue():
 	return len(self._contents)
 
     def next(self):
-	if not self._pointer:
+	if self._pointer is None:
 	    self._pointer = 0
 	else:
 	    self._pointer += 1
