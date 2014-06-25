@@ -21,6 +21,7 @@ class HPriorityQueue(HQueue):
     def push(self,tuple):
 	priority, value = tuple
 	self._contents.append(value)
+	self._priorities.append(priority)
 
     def get_queue(self, priority):
 	self._priorities[priority]
