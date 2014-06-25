@@ -1,0 +1,20 @@
+1. Linked List (singly-linked)
+- linear
+- sequential access without destruction
+- insert into random position
+- one-way access from top
+
+2. Stack
+- linear
+- sequential access with destruction
+- one way access from top
+- insert only from top
+
+3. Queue
+- linear
+- sequential with destruction
+- one way access from bottom
+
+4. Priority Queue
+- every value comes in with a priority value
+- so, every element is a tuple
