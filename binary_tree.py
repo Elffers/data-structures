@@ -8,8 +8,15 @@ class BTree():
 	    self._root = node
 	    node.index = 0
 	else:
-	    current = self._root
-
+	   current = self._root
+	   if current.childless():
+	       current.left = node
+	       node.index = current.index + 1
+	   elif current.left and not current.right:
+	       current.right = node
+	       node.index = current.left.index + 1
+	   elif current.complete():
+	       current = current.left
 	    
 
     class Node():
@@ -21,3 +28,6 @@ class BTree():
 	
 	def complete(self):
 	    return self.right is not None and self.left is not None
+
+	def childless(self):
+	    return self.right is None and self.left is None
