@@ -32,10 +32,10 @@ class HPriorityQueue():
 	    self._priorities[priority] = hqueue
 
     def dequeue(self):
-	max_priority = min(self._priorities.keys())
-	el = self._priorities[max_priority].dequeue()
-	if not self._priorities[max_priority]:
-	    self._priorities.pop(max_priority)
+	priority = min(self._priorities.keys())
+	el = self._priorities[priority].dequeue()
+	if not self._priorities[priority]:
+	    self._priorities.pop(priority)
 	return el
 
     def list_priorities(self):
