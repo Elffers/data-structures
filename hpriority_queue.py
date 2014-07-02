@@ -1,4 +1,3 @@
-# Priority Queue
 # methods:
 # get_queue(priority) should return queue of values
 # push 
@@ -13,13 +12,15 @@
 
 from hqueue import HQueue
 
-class HPriorityQueue(HQueue):
+class HPriorityQueue():
     def __init__(self):
 	self._priorities = {}
-	self._contents = []
     
     def __len__(self):
-	return len(self._contents)
+	count = 0
+	for priority in self._priorities:
+	    count += len(self._priorities[priority])
+	return count
 
     def push(self,tuple):
 	priority, value = tuple
@@ -29,7 +30,14 @@ class HPriorityQueue(HQueue):
 	    hqueue = HQueue()
 	    hqueue.push(value)
 	    self._priorities[priority] = hqueue
-	self._contents.append(value)
+
+    def dequeue(self):
+	for priority in self._priorities:
+	    if not self._priorities[priority]._contents:
+		self._priorities.pop(priority)
+	max_priority = min(self._priorities.keys())
+	el = self._priorities[max_priority].dequeue()
+	return el
 
     def list_priorities(self):
 	return self._priorities.keys()

@@ -18,3 +18,4 @@
 4. Priority Queue
 - every value comes in with a priority value
 - so, every element is a tuple
+- dequeue entails taking the first element off that has the highest priority

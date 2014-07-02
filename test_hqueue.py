@@ -30,18 +30,19 @@ class TestHQueueFunctions(unittest.TestCase):
 	with self.assertRaises(IndexError):
 	    self.hqueue.dequeue()
     
-    def test_next(self):
-	self.hqueue.push(1)
-	self.hqueue.push(2)
-	self.assertEqual(self.hqueue.next(), 1)
-	self.assertEqual(self.hqueue.next(), 2)
+#   def test_next(self):
+#	self.hqueue.push(1)
+#	self.hqueue.push(2)
+#	self.assertEqual(self.hqueue.next(), 1)
+#	self.assertEqual(self.hqueue.next(), 2)
+    
+#    def test_next_on_empty(self):
+#	with self.assertRaises(StopIteration):
+#	    self.hqueue.next()
 
-    def test_iter(self):
-	self.hqueue.push(1)
-	self.hqueue.push(2)
-
-# test_values = [1, 2, 3]
-# for test_value in test_values:
-	# self.foo.push(test_values)
-# for element, test_value in self.foo, test_values:
-    # self.assertEquals(element, test_value)
+    # def test_iter(self):
+#	test_values = [1, 2, 3]
+#	for test_value in test_values:
+#	    self.hqueue.push(test_value)
+#	for element, test_value in self.hqueue, test_values:
+#	    self.assertEquals(element, test_value)

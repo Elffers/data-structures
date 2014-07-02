@@ -6,21 +6,30 @@ class TestHPriorityQueue(unittest.TestCase):
     def setUp(self):
 	self.hpq = HPriorityQueue()
 
-    def test_push(self):
+    def test_length(self):
+	self.hpq.push([2,3])
 	self.hpq.push([1,5])
-	self.assertEqual(self.hpq._contents[0], 5)
+	self.assertEqual(len(self.hpq), 2)
+
+    def test_push(self):
+	self.hpq.push([2,3])
+	self.hpq.push([1,5])
+	self.hpq.push([1,2])
+	self.assertEqual(self.hpq.dequeue(),5)
 
     def test_dequeue(self):
-	self.hpq.push([1,5])
-	self.assertEqual(self.hpq.dequeue(), 5)
-
-    def test_lenth(self):
-	self.hpq.push([1,5])
-	self.assertEqual(len(self.hpq), 1)
+	self.hpq.push([1,1])
+	self.hpq.push([2,3])
+	self.hpq.push([1,2])
+	self.assertEqual(self.hpq.dequeue(), 1)
+	self.assertEqual(self.hpq.dequeue(), 2)
+	self.assertEqual(self.hpq.dequeue(), 3)
 
     def test_list_priorities(self):
 	self.hpq.push([1,5])
 	self.hpq.push([2,3])
+	self.hpq.push([1,7])
+	self.hpq.push([2,4])
 	self.assertEqual(self.hpq.list_priorities(), [1,2])
 
     def test_get_priorities(self):
