@@ -12,10 +12,12 @@ class TestHPriorityQueue(unittest.TestCase):
 	self.assertEqual(len(self.hpq), 2)
 
     def test_push(self):
-	self.hpq.push([2,3])
 	self.hpq.push([1,5])
+	self.hpq.push([2,3])
 	self.hpq.push([1,2])
 	self.assertEqual(self.hpq.dequeue(),5)
+	self.assertEqual(self.hpq.dequeue(),2)
+	self.assertEqual(self.hpq.dequeue(),3)
 
     def test_dequeue(self):
 	self.hpq.push([1,1])
