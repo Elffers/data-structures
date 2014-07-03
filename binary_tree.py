@@ -1,6 +1,7 @@
 class BTree():
     def __init__(self):
 	self._root = None
+	self._last = None
 
     def push(self, value):
 	node = BTree.Node(value)
@@ -12,9 +13,11 @@ class BTree():
 	   if current.childless():
 	       current.left = node
 	       node.index = current.index + 1
+	       self._last = node
 	   elif current.left and not current.right:
 	       current.right = node
 	       node.index = current.left.index + 1
+	       self._last = node
 	   elif current.complete():
 	       current = current.left
 	    
