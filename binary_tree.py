@@ -19,6 +19,7 @@ class BTree():
 	return [node.value for node in self._breadth_traversal()._contents]
 
     def _breadth_traversal(self):
+	""" returns queue containing Node objects """
 	queue = HQueue()
 	queue.push(self._root)
 	i = 0
