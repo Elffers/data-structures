@@ -23,15 +23,15 @@ class HQueue():
     def __len__(self):
 	return len(self._contents)
 
-    #def next(self):
-	#if self._pointer == (len(self) - 1):
-	 #   raise StopIteration
-#	if self._pointer is None:
-#	    self._pointer = 0
-#	else:
-#	    self._pointer += 1
-#	return self._contents[self._pointer]
-
-#   def __iter__(self):
-#	return self
+    def next(self):
+	if self._pointer == (len(self) - 1):
+	    raise StopIteration
+	if self._pointer is None:
+	    self._pointer = 0
+	else:
+	    self._pointer += 1
+	return self._contents[self._pointer]
+    
+    def __iter__(self):
+	return self._contents
 
