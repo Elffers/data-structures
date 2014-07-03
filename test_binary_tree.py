@@ -49,7 +49,7 @@ class TestBtree(unittest.TestCase):
 	self.btree.push(5)
 	self.btree.push(6)
 	self.assertEqual(self.btree._root.left.right.value, 5)
-	#self.assertEqual(self.btree._root.right.left.value, 6)
+	self.assertEqual(self.btree._root.right.left.value, 6)
 
     def test_breadth_first_traversal(self):
 	self.btree.push(1)

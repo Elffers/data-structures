@@ -8,14 +8,16 @@ class BTree():
 	if not self._root:
 	    self._root = node
 	else:
-	   current = self._root
-	   while current.complete():
-	       # if current.left.complete():
-	       current = current.left
-	       # else:
-	   current.attach(node)
+	    target = None
+	    nodes = self._breadth_traversal()._contents
+	    for	x in nodes:
+		if not x.complete():
+		    target = x
+		    break
+	    target.attach(node)
 
     def breadth_first_traversal(self):
+	""" returns values of nodes returned breadth-first """
 	return [node.value for node in self._breadth_traversal()._contents]
 
     def _breadth_traversal(self):
@@ -25,7 +27,6 @@ class BTree():
 	i = 0
 	while i < len(queue._contents):
 	    el = queue._contents[i]
-	    print "EL", el.value
 	    if not el.childless():
 		queue.push(el.left)
 		if el.right:
