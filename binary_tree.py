@@ -16,17 +16,20 @@ class BTree():
 	   current.attach(node)
 
     def breadth_first_traversal(self):
-	return [x.value for x in self._breadth_traversal()._contents]
+	return [node.value for node in self._breadth_traversal()._contents]
 
     def _breadth_traversal(self):
 	queue = HQueue()
 	queue.push(self._root)
-	while queue._contents:
-	    el = queue.dequeue()
+	i = 0
+	while i < len(queue._contents):
+	    el = queue._contents[i]
+	    print "EL", el.value
 	    if not el.childless():
 		queue.push(el.left)
 		if el.right:
-		    queue.push(el.right) 
+		    queue.push(el.right)
+	    i += 1
 	return queue
 
     class Node():

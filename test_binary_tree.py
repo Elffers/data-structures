@@ -59,6 +59,14 @@ class TestBtree(unittest.TestCase):
 	self.btree.push(5)
 	self.assertEqual(self.btree.breadth_first_traversal(), [1, 2, 3, 4, 5])
 
+    def test_breadth_traversal(self):
+	self.btree.push(1)
+	self.btree.push(2)
+	self.btree.push(3)
+	self.btree.push(4)
+	self.btree.push(5)
+	self.assertEqual(len(self.btree._breadth_traversal()._contents), 5)
+
     def test_node_has_children(self):
 	self.btree.push(1)
 	self.btree.push(2)
