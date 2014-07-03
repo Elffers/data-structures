@@ -20,7 +20,7 @@ class TestBtree(unittest.TestCase):
 	self.assertEqual(self.btree._root.value, 10)
 #	self.assertEqual(self.btree._root.index, 0)
 
-    def test_push_on_empty(self):
+    def test_push_on_leaf(self):
 	self.btree.push(self.node)
 	self.btree.push(2)
 	self.assertEqual(self.btree._root.left.value, 2)
@@ -30,7 +30,6 @@ class TestBtree(unittest.TestCase):
 	self.btree.push(self.node)
 	self.btree.push(2)
 	self.btree.push(3)
-	self.btree.push(4)
 	self.assertEqual(self.btree._root.right.value, 3)
 #	self.assertEqual(self.btree._root.left.index, 1)
 #	self.assertEqual(self.btree._root.right.index, 2)

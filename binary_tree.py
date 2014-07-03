@@ -10,6 +10,9 @@ class BTree():
 	   current = self._root
 	   if current.complete():
 	       current = current.left
+	       current.attach(node)
+	   else:
+	       current.attach(node)
 
     class Node():
 	def __init__(self, value):
