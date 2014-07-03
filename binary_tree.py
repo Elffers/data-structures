@@ -58,5 +58,5 @@ class BTree():
         def attach(self, node):
             if self.childless():
                 self.left = node
-           else:
-               self.right = node
+            else:
+                self.right = node
