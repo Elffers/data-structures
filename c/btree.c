@@ -41,6 +41,8 @@ struct node *addnode(struct node *root, int value){
     }
 }
 
+/* have recursive way to free all the mallocs */
+
 int main(){
     struct node *root = addnode(NULL, 5);
     printf("Expected value of root: 5\n");
