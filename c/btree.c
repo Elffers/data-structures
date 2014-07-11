@@ -44,11 +44,8 @@ struct node *addnode(struct node *root, int value){
 int main(){
     struct node *root = addnode(NULL, 1);
     printf("value of root: %d\n", root->value);
-    struct node leaf;
-    struct node *leaf_p = &leaf;
-    addnode(leaf_p, 2);
+    addnode(root, 2);
     printf("value of first insert: %d\n", root->right->value);
-    printf("value of first insert: %d\n", root->left->value);
     return 0;
 }
 
