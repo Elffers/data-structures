@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <assert.h>
 
 struct node{
     int value;
@@ -6,7 +8,7 @@ struct node{
 };
 
 struct node *addnode(struct node *root, int value){
-    if(*root == NULL){
+    if(root == NULL){
         root = (struct node *)malloc(sizeof(struct node));
         /* lazy way of catching malloc failure */
         assert(root);
@@ -31,7 +33,7 @@ struct node *addnode(struct node *root, int value){
             current->left->value = value;
             return current->left;
         }
-        else if (value >= current->value){
+        else{ 
             current->right = (struct node *)malloc(sizeof(struct node));
             current->right->value = value;
             return current->right;
@@ -40,10 +42,13 @@ struct node *addnode(struct node *root, int value){
 }
 
 int main(){
-
-    struct node head;
-    struct node *head_p = &head;
-    addnode(head_p, 1);
-    printf("value of head: %d", head_p->value);
+    struct node *root = addnode(NULL, 1);
+    printf("value of root: %d\n", root->value);
+    struct node leaf;
+    struct node *leaf_p = &leaf;
+    addnode(leaf_p, 2);
+    printf("value of first insert: %d\n", root->right->value);
+    printf("value of first insert: %d\n", root->left->value);
+    return 0;
 }
 
