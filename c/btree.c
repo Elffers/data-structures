@@ -8,7 +8,7 @@ struct node{
 };
 
 struct node *addnode(struct node *root, int value){
-    if(root == NULL){
+    if(root == NULL) {
         root = (struct node *)malloc(sizeof(struct node));
         /* lazy way of catching malloc failure */
         assert(root);
@@ -24,17 +24,17 @@ struct node *addnode(struct node *root, int value){
             if (value < seeker->value){
                 seeker = seeker->left;
             }
-            else if (value <= seeker->value){
+            else if (value >= seeker->value){
                 seeker = seeker->right;
             }
         }
-        if (value < current->value){
-            current->left = (struct node *)malloc(sizeof(struct node));
+        if(value < current->value) {
+            current->left = (struct node *)calloc(1, sizeof(struct node));
             current->left->value = value;
             return current->left;
         }
-        else{ 
-            current->right = (struct node *)malloc(sizeof(struct node));
+        else { 
+            current->right = (struct node *)calloc(1, sizeof(struct node));
             current->right->value = value;
             return current->right;
         }
@@ -42,10 +42,15 @@ struct node *addnode(struct node *root, int value){
 }
 
 int main(){
-    struct node *root = addnode(NULL, 1);
+    struct node *root = addnode(NULL, 5);
+    printf("Expected value of root: 5\n");
     printf("value of root: %d\n", root->value);
-    addnode(root, 2);
+    addnode(root, 7);
+    printf("Expected value of root: 7\n");
     printf("value of first insert: %d\n", root->right->value);
+    addnode(root, 3);
+    printf("Expected value of root: 3\n");
+    printf("value of first insert: %d\n", root->left->value);
     return 0;
 }
 
