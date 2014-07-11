@@ -1,12 +1,15 @@
 #include <stdio.h>
+#include <stdlib.h>
+#define CHUNK 2
 
 /* Stack data structure in C */
 
 /* initialize stack of fixed size 10 */
 /* having a length variable keeps track of times pushed/popped */
 struct stack{
-	int contents[10];
+    int *contents;
     int length;
+    int size;
 };
 
 /* The *stack indicates that the actual stack being passed 
@@ -26,17 +29,23 @@ int pop(struct stack *s){
 }
 void init(struct stack *s){
     s->length = 0;
+    s->size = CHUNK;
+    s->contents = (int *)malloc(sizeof(int) * s->size);
+    if (!s->contents) {
+        printf("There was not enough memory");
+        abort();
+    }
 }
 
 int push(struct stack *s, int element){
-    if (s->length == 10){
-        return -1;
+    if (s->length == s->size){
+        s->size += CHUNK;
+        /* what happens if realloc fails?? WHAT DO HERE */
+        s->contents = (int*)realloc(s->contents, sizeof(int)* s->size);
     }
-    else {
-        s->contents[s->length] = element;
-        s->length++;
-        return 0;
-    }
+    s->contents[s->length] = element;
+    s->length++;
+    return 0;
 }
 
 int main(){
@@ -50,7 +59,9 @@ int main(){
     printf("pop on stack with one element: %d\n", pop(numbers_p));
     push(numbers_p, 1);
     push(numbers_p, 2);
+    printf("size: %d, length: %d\n", numbers_p->size, numbers_p->length);
     push(numbers_p, 3);
+    printf("size: %d, length: %d\n", numbers_p->size, numbers_p->length);
     push(numbers_p, 4);
     push(numbers_p, 5);
     push(numbers_p, 6);
@@ -58,6 +69,5 @@ int main(){
     push(numbers_p, 8);
     push(numbers_p, 9);
     push(numbers_p, 10);
-    printf("push on full stack: %d\n", push(numbers_p, 11));
     return 0;
 }
