@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#define CHUNK 2
-
+#define CHUNK 10
 /* Stack data structure in C */
 
 /* initialize stack of fixed size 10 */
@@ -57,6 +56,10 @@ int push(struct stack *s, int element){
     return 0;
 }
 
+void done(struct stack *s){
+    free(s->contents);
+}
+
 int main(){
     struct stack numbers;
     struct stack *numbers_p = &numbers;
@@ -78,5 +81,6 @@ int main(){
     push(numbers_p, 8);
     push(numbers_p, 9);
     push(numbers_p, 10);
+    done(numbers_p);
     return 0;
 }
