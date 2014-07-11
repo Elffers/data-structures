@@ -46,11 +46,23 @@ int main(){
     printf("Expected value of root: 5\n");
     printf("value of root: %d\n", root->value);
     addnode(root, 7);
-    printf("Expected value of root: 7\n");
+    printf("Expected value of insert: 7\n");
     printf("value of first insert: %d\n", root->right->value);
     addnode(root, 3);
-    printf("Expected value of root: 3\n");
-    printf("value of first insert: %d\n", root->left->value);
+    printf("Expected value of insert: 3\n");
+    printf("value of 2nd insert: %d\n", root->left->value);
+    addnode(root, 1);
+    printf("Expected value of insert: 1\n");
+    printf("value of 3rd insert: %d\n", root->left->left->value);
+    addnode(root, 2);
+    printf("Expected value of insert: 2\n");
+    printf("value of insert: %d\n", root->left->left->right->value);
+    addnode(root, 2);
+    printf("Expected value of insert: 2\n");
+    printf("value of insert: %d\n", root->left->left->right->right->value);
+    addnode(root, 1);
+    printf("Expected value of insert: 1\n");
+    printf("value of insert: %d\n", root->left->left->right->left->value);
     return 0;
 }
 
