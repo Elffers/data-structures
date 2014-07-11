@@ -39,9 +39,18 @@ void init(struct stack *s){
 
 int push(struct stack *s, int element){
     if (s->length == s->size){
+        int *tmp;
         s->size += CHUNK;
         /* what happens if realloc fails?? WHAT DO HERE */
-        s->contents = (int*)realloc(s->contents, sizeof(int)* s->size);
+        tmp = (int*)realloc(s->contents, sizeof(int)* s->size);
+        if (!tmp)
+        {
+            printf("There was not enough memory");
+        }
+        else
+        {
+            s->contents = tmp;
+        }
     }
     s->contents[s->length] = element;
     s->length++;
