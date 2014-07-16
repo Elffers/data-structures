@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <assert.h>
 
+/* Binary Search Tree */
+
 struct node{
     int value;
     struct node *left, *right;
