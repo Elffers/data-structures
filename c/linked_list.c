@@ -25,7 +25,7 @@ struct linked_list *linked_list_init(){
    return list;
 };
 
-int append(struct linked_list *list, int value){
+int prepend(struct linked_list *list, int value){
     if (list->size == 0){
         list->head = (struct node *)malloc(sizeof(struct node));
         list->head->value = value;
@@ -47,11 +47,11 @@ int main(){
     struct linked_list *list;
     list = linked_list_init();
     printf("The size of the list is %d\n", list->size);
-    append(list, 1);
+    prepend(list, 1);
     printf("The first value of the list is %d\n", list->head->value);
     printf("The  value of the list's tail is %d\n", list->tail->value);
     printf("The size of the list is %d\n", list->size);
-    append(list, 2);
+    prepend(list, 2);
     printf("The  value of the list's head is %d\n", list->head->value);
     printf("The size of the list is %d\n", list->size);
 }
