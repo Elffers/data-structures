@@ -31,8 +31,15 @@ int append(struct linked_list *list, int value){
         list->head->value = value;
         list->head->next = NULL;
         list->tail = list->head;
-        return 0;
     }
+    else {
+        struct node *node_p = (struct node *)malloc(sizeof(struct node));
+        node_p->value = value;
+        struct node *next = list->head;
+        node_p->next = next;
+        list->head = node_p;
+    }
+    list->size++;
     return 0;
 }
 
@@ -43,4 +50,8 @@ int main(){
     append(list, 1);
     printf("The first value of the list is %d\n", list->head->value);
     printf("The  value of the list's tail is %d\n", list->tail->value);
+    printf("The size of the list is %d\n", list->size);
+    append(list, 2);
+    printf("The  value of the list's head is %d\n", list->head->value);
+    printf("The size of the list is %d\n", list->size);
 }
