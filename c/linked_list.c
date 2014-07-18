@@ -19,6 +19,7 @@ struct linked_list {
 /* using calloc instead of malloc also makes it unnecessary to initialize
  * the head pointer, since it will already be pointing to null */
 
+
 struct linked_list *linked_list_init(){
    struct linked_list *list;
    list = (struct linked_list *)calloc(1, sizeof(struct linked_list));
@@ -95,6 +96,8 @@ void inspect(struct linked_list *list){
     }
     printf("]\n");
 }
+
+/* implement a function to return the nth position of linked list */
 
 int main(){
     struct linked_list *list;
