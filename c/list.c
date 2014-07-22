@@ -15,7 +15,7 @@ struct node *ll_append(struct node *node, int value){
     struct node *new_node;
     new_node = (struct node *)malloc(sizeof(struct node));
     new_node->value = value;
-    new_node->next = NULL;
+    new_node->next = node->next;
     node->next = new_node;
     return new_node;
 }
