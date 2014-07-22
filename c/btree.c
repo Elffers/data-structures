@@ -8,7 +8,9 @@ struct node{
     int value;
     struct node *left, *right;
 };
-
+/* To avoid memory leak of the pointer to root, either 
+always return the root or have separate init function to deal
+with setting the root*/
 struct node *addnode(struct node *root, int value){
     if(root == NULL) {
         root = (struct node *)malloc(sizeof(struct node));
@@ -31,8 +33,10 @@ struct node *addnode(struct node *root, int value){
             }
         }
         if(value < current->value) {
-            current->left = (struct node *)calloc(1, sizeof(struct node));
+            current->left = (struct node *)malloc(sizeof(struct node));
+            /* can also move current to the current->left for readability */
             current->left->value = value;
+            current->left->left = current->left->right = NULL;
             return current->left;
         }
         else { 
@@ -44,11 +48,32 @@ struct node *addnode(struct node *root, int value){
 }
 
 /* have recursive way to free all the mallocs */
+/* can also use this same method in postorder traversal, replacing
+free with print */
 
+void freetree(struct node *root){
+    if(root == NULL){
+        return;
+    }
+    freetree(root->left);
+    freetree(root->right);
+    free(root);
+}
+
+void postorder(struct node *root){
+    if(root == NULL){
+        return;
+    }
+    postorder(root->left);
+    postorder(root->right);
+    printf("%d\n",root->value);
+}
 int main(){
     struct node *root = addnode(NULL, 5);
     printf("Expected value of root: 5\n");
     printf("value of root: %d\n", root->value);
+    /* can cast the return value of addnode to void, ie
+    (void) addnode(root, 7) to avoid memory leak */
     addnode(root, 7);
     printf("Expected value of insert: 7\n");
     printf("value of first insert: %d\n", root->right->value);
@@ -67,6 +92,8 @@ int main(){
     addnode(root, 1);
     printf("Expected value of insert: 1\n");
     printf("value of insert: %d\n", root->left->left->right->left->value);
+    postorder(root);
+    freetree(root);
     return 0;
 }
 
