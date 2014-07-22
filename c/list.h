@@ -17,9 +17,13 @@ struct node {
 };
 
 /* function prototypes */
+/* there is no namespacing in C! so you have to add silly prefixes
+ * to make sure your program doesn't blow up if someone else has a 
+ * function with the same name as yours. At least if you want them to 
+ * include your file as a library */
 
-void free_node(struct node *node);
-struct node *append(struct node *node, int value);
-struct node *prepend(struct node *node, int value);
+void ll_free_node(struct node *node);
+struct node *ll_append(struct node *node, int value);
+struct node *ll_prepend(struct node *node, int value);
 
 #endif /*_LIST_H_*/

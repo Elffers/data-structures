@@ -2,7 +2,7 @@
 #include "list.h"
 
 /* returns pointer to new head */
-struct node *prepend(struct node *node, int value){
+struct node *ll_prepend(struct node *node, int value){
     struct node *new_node;
     new_node = (struct node *)malloc(sizeof(struct node));
     new_node->value = value;
@@ -11,7 +11,7 @@ struct node *prepend(struct node *node, int value){
 }
 
 /* returns pointer to new tail */
-struct node *append(struct node *node, int value){
+struct node *ll_append(struct node *node, int value){
     struct node *new_node;
     new_node = (struct node *)malloc(sizeof(struct node));
     new_node->value = value;
@@ -20,6 +20,6 @@ struct node *append(struct node *node, int value){
     return new_node;
 }
 
-void free_node(struct node *node){
+void ll_free_node(struct node *node){
     free(node);
 }
