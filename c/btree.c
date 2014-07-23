@@ -68,6 +68,16 @@ void postorder(struct node *root){
     postorder(root->right);
     printf("%d\n",root->value);
 }
+
+void inorder(struct node *root){
+    if(root->left == NULL){
+        return;
+    }
+    postorder(root->left);
+    printf("%d\n",root->value);
+    postorder(root->right);
+}
+
 int main(){
     struct node *root = addnode(NULL, 5);
     printf("Expected value of root: 5\n");
@@ -92,7 +102,15 @@ int main(){
     addnode(root, 1);
     printf("Expected value of insert: 1\n");
     printf("value of insert: %d\n", root->left->left->right->left->value);
+    addnode(root, 6);
+    printf("Expected value of insert: 6\n");
+    printf("value of insert: %d\n", root->right->left->value);
+    printf("--------\n");
+    printf("post order traversal\n");
     postorder(root);
+    printf("--------\n");
+    printf("in order traversal\n");
+    inorder(root);
     freetree(root);
     return 0;
 }
