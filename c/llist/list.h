@@ -25,5 +25,6 @@ struct node {
 void ll_free_node(struct node *node);
 struct node *ll_append(struct node *node, int value);
 struct node *ll_prepend(struct node *node, int value);
-
+void inspect_list(struct node *node);
+void ll_free_(struct node *node);
 #endif /*_LIST_H_*/
