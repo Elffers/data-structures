@@ -19,9 +19,11 @@ class HQueue():
 	self._contents = self._contents[1:]
 	# print self._contents
 	return el
-    
+
     def __len__(self):
 	return len(self._contents)
+
+# TODO: make Hqueue iterable
 
 #    def next(self):
 #	if self._pointer == (len(self) - 1):
@@ -31,7 +33,7 @@ class HQueue():
 #	else:
 #	    self._pointer += 1
 #	return self._contents[self._pointer]
-    
+
     def __iter__(self):
 	return self._contents
 
