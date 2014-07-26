@@ -1,9 +1,13 @@
 from hqueue import HQueue
 class BTree():
+    """ Unordered binary tree """
     def __init__(self):
         self._root = None
 
     def push(self, value):
+        """ Sets root if it doesn't exist. Otherwise uses breadth-first
+        traversal to insert. This implies that the tree is always balanced and
+        left-aligned."""
         node = BTree.Node(value)
         if not self._root:
             self._root = node
