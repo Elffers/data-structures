@@ -13,7 +13,7 @@ array_stack_main.o: array_stack_main.c array_stack.h
 	$(CC) array_stack_main.c -o array_stack_main.o -c
 
 array_stack.o: array_stack.c array_stack.h
-	$(CC) array_stack.c -o array_stack.o
+	$(CC) array_stack.c -o array_stack.o -c
 
 clean:
 	rm -rf array_stack.o array_stack_main.o array_stack
