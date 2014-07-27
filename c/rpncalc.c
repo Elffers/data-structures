@@ -33,9 +33,11 @@ int eval(struct stack *s, char *expression){
         long num;
         num = strtol(token, &remainder, 10);
         printf("This is the token: %s\n", token);
-        printf("Number: %ld\n", num);
         if(remainder == token){
             printf("This is an operator: %s\n", token);
+        }
+        else{
+            printf("Number: %ld\n", num);
         }
         printf("remaining input:  %s\n", remainder);
         printf("---\n");
