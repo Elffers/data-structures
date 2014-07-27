@@ -60,8 +60,8 @@ int eval(struct stack *s, char *expression){
                     value = operator1 / operator2;
                     break;
             }
+            push(s, value);
             printf("value: %d\n", value);
-            printf("This is an operator: %s\n", token);
         }
         else{
             push(s, num);
@@ -90,5 +90,7 @@ int main(){
     eval(input_p, expression3);
     char *expression4 = "6 3 /";
     eval(input_p, expression4);
+    char *expression5 = "1 3 + 7 4 - *";
+    eval(input_p, expression5);
     return 0;
 }
