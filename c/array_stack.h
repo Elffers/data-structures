@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #ifndef _ARRAY_STACK_H_
 #define _ARRAY_STACK_H_
+#define CHUNK 10
 
 /* initialize stack of fixed size 10 */
 /* having a length variable keeps track of times pushed/popped */
