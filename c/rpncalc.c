@@ -43,21 +43,21 @@ int eval(struct stack *s, char *expression){
          * strtok iteration would have returned the "operator + NULL" string,
          * which would be assigned to remainder since operator is non-numeric*/
         if(remainder == token){
-            int operator2 = pop(s);
-            int operator1= pop(s);
+            int operand2 = pop(s);
+            int operand1 = pop(s);
             int value;
             switch (*token){
                 case '+':
-                    value = operator1 + operator2;
+                    value = operand1 + operand2;
                     break;
                 case '-':
-                    value = operator1 - operator2;
+                    value = operand1 - operand2;
                     break;
                 case '*':
-                    value = operator1 * operator2;
+                    value = operand1 * operand2;
                     break;
                 case '/':
-                    value = operator1 / operator2;
+                    value = operand1 / operand2;
                     break;
             }
             push(s, value);
